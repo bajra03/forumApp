@@ -1880,40 +1880,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      show1: false,
-      show2: true,
-      show3: false,
-      show4: false,
-      password: "",
-      rules: {
-        required: function required(value) {
-          return !!value || "Required.";
-        },
-        min: function min(v) {
-          return v.length >= 8 || "Min 8 characters";
-        },
-        emailMatch: function emailMatch() {
-          return "The email and password you entered don't match";
-        }
-      },
       form: {
         email: null,
         password: null
       }
     };
+  },
+  methods: {
+    login: function login() {
+      axios.post("/api/auth/login", this.form).then(function (res) {
+        return console.log(res.data);
+      }).catch(function (error) {
+        return console.log(error.response.data);
+      });
+    }
   }
 });
 
@@ -36929,6 +36912,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.login($event)
+        }
+      }
+    },
     [
       _c(
         "v-container",
@@ -36961,20 +36952,9 @@ var render = function() {
                 [
                   _c("v-text-field", {
                     attrs: {
-                      "append-icon": _vm.show1
-                        ? "visibility_off"
-                        : "visibility",
-                      rules: [_vm.rules.required, _vm.rules.min],
-                      type: _vm.show1 ? "text" : "password",
-                      name: "input-10-1",
                       label: "Password",
-                      hint: "At least 8 characters",
-                      counter: ""
-                    },
-                    on: {
-                      "click:append": function($event) {
-                        _vm.show1 = !_vm.show1
-                      }
+                      type: "password",
+                      required: ""
                     },
                     model: {
                       value: _vm.form.password,
