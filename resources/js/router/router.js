@@ -12,8 +12,8 @@ const routes = [{
 
 const router = new VueRouter({
     routes, // short for `routes: routes`
-    hasbang: false,
-    mode: 'history'
+    hasbang: false, // for disable # in url
+    mode: 'history' // for disable # in url
 })
 
 export default router

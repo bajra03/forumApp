@@ -1868,7 +1868,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      show1: false,
+      show2: true,
+      show3: false,
+      show4: false,
+      password: "",
+      rules: {
+        required: function required(value) {
+          return !!value || "Required.";
+        },
+        min: function min(v) {
+          return v.length >= 8 || "Min 8 characters";
+        },
+        emailMatch: function emailMatch() {
+          return "The email and password you entered don't match";
+        }
+      },
+      form: {
+        email: null,
+        password: null
+      }
+    };
+  }
+});
 
 /***/ }),
 
@@ -36880,7 +36927,77 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Login Component")])
+  return _c(
+    "v-form",
+    [
+      _c(
+        "v-container",
+        [
+          _c(
+            "v-layout",
+            { attrs: { row: "", wrap: "" } },
+            [
+              _c(
+                "v-flex",
+                { attrs: { xs12: "" } },
+                [
+                  _c("v-text-field", {
+                    attrs: { label: "Email", type: "email", required: "" },
+                    model: {
+                      value: _vm.form.email,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "email", $$v)
+                      },
+                      expression: "form.email"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-flex",
+                { attrs: { xs12: "" } },
+                [
+                  _c("v-text-field", {
+                    attrs: {
+                      "append-icon": _vm.show1
+                        ? "visibility_off"
+                        : "visibility",
+                      rules: [_vm.rules.required, _vm.rules.min],
+                      type: _vm.show1 ? "text" : "password",
+                      name: "input-10-1",
+                      label: "Password",
+                      hint: "At least 8 characters",
+                      counter: ""
+                    },
+                    on: {
+                      "click:append": function($event) {
+                        _vm.show1 = !_vm.show1
+                      }
+                    },
+                    model: {
+                      value: _vm.form.password,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "password", $$v)
+                      },
+                      expression: "form.password"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("v-btn", { attrs: { type: "submit" } }, [_vm._v("Login")])
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -75056,7 +75173,9 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes,
   // short for `routes: routes`
   hasbang: false,
-  mode: 'history'
+  // for disable # in url
+  mode: 'history' // for disable # in url
+
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 
