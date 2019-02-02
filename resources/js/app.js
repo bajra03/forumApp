@@ -10,7 +10,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 window.User = User
-
+window.EventBus = new Vue();
 
 Vue.use(Vuetify)
 
