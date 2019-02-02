@@ -9,6 +9,9 @@
           <v-text-field v-model="form.password" label="Password" type="password" required></v-text-field>
         </v-flex>
         <v-btn type="submit">Login</v-btn>
+        <router-link to="/signup">
+          <v-btn color="blue">Sign Up</v-btn>
+        </router-link>
       </v-layout>
     </v-container>
   </v-form>
