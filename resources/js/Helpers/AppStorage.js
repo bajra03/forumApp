@@ -10,22 +10,22 @@ class AppStorage {
 
     // For login function, get the token and user name of the user that login
     store(token, user) {
-        this.storeToken(token)
-        this.storeUser(user)
+        this.storeUser(user);
+        this.storeToken(token);
     }
 
     getToken() {
-        return localStorage.getItem('token')
+        return localStorage.getItem('token');
     }
 
     getUser() {
-        return localStorage.getItem('user')
+        return localStorage.getItem('user');
     }
 
     // For logout
     clear() {
-        localStorage.removeItem('token')
-        localStorage.removeItem('user')
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
     }
 }
 

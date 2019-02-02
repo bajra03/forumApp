@@ -11,6 +11,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 window.User = User
 
+
 Vue.use(Vuetify)
 
 
